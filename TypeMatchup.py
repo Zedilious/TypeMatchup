@@ -76,6 +76,8 @@ class Input:
         for i in weak:
             print("\t - %s" % i)
 
+        self.again()
+
     def two_type_info(self, f_type, s_type):
         s_strong = []
         s_weak = []
@@ -89,6 +91,27 @@ class Input:
 
                 if f_type in self.type_dict[k]["resistance"]:
                     weak.append(k)
+
+        self.again()
+
+    def again(self):
+        i = False
+
+        while not i:
+
+            text = raw_input("\nWould you like to check more types? [y/n]: ")
+
+            if text not in ["y", "n"]:
+                print("\nnot a valid response, use 'y' or 'n'")
+
+            else:
+
+                if text == "y":
+                    self.get_input()
+                else:
+                    print("\nThank you for using TypeMatchup, goodbye!")
+
+                i = True
 
 
 if __name__ == "__main__":
